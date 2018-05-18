@@ -1,5 +1,5 @@
-hash: e01cef9fee38f9253fae78bdd2ee331e60251a73dbd057c20bd5db5ef7a4423a
-updated: 2018-05-03T15:00:25.811457458-07:00
+hash: 3b41c5802f0f46cb790175152d9afbdacc5dc5b4d30a5f466ce1dbc91c1f914c
+updated: 2018-05-18T11:43:46.257400603-07:00
 imports:
 - name: bitbucket.org/ww/goautoneg
   version: 75cd24fc2f2c2a2088577d12123ddee5f54e0675
@@ -176,7 +176,7 @@ imports:
   - runtime/internal
   - utilities
 - name: github.com/go-ini/ini
-  version: 20b96f641a5ea98f2f8619ff4f3e061cff4833bd
+  version: c787282c39ac1fc618827141a1f762240def08a3
 - name: github.com/godbus/dbus
   version: a5942dec6340eb0d57f43f2003c190ce06e43dea
 - name: github.com/gogo/protobuf
@@ -197,7 +197,7 @@ imports:
 - name: github.com/inconshreveable/mousetrap
   version: 76626ae9c91c4f2a10f34cad8ce83ea42c93bb75
 - name: github.com/jmespath/go-jmespath
-  version: c01cf91b011868172fdcd9f41838e80c9d716264
+  version: bd40a432e4c76585ef6b72d3fd96fb9b6dc7b68d
 - name: github.com/jonboulle/clockwork
   version: 72f9bd7c4e0c2a40055ab3d0f09654f730cce982
 - name: github.com/kballard/go-shellquote

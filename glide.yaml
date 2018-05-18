@@ -1,7 +1,5 @@
 package: github.com/coreos/mantle
 import:
-- package: bitbucket.org/ww/goautoneg
-  version: 75cd24fc2f2c2a2088577d12123ddee5f54e0675
 - package: github.com/Azure/azure-sdk-for-go
   version: f8b0607613f19ae9509b5ed6fbfda56caf06d59d
   subpackages:
@@ -67,12 +65,6 @@ import:
   - service/s3/s3iface
   - service/s3/s3manager
   - service/sts
-- package: github.com/beorn7/perks
-  version: b965b613227fddccbfffe13eae360ed3fa822f8d
-  subpackages:
-  - quantile
-- package: github.com/boltdb/bolt
-  version: v1.2.1
 - package: github.com/coreos/container-linux-config-transpiler
   version: v0.8.0
   subpackages:
@@ -88,53 +80,10 @@ import:
 - package: github.com/coreos/etcd
   version: v3.0.3
   subpackages:
-  - alarm
-  - auth
-  - auth/authpb
-  - client
-  - compactor
-  - discovery
-  - error
   - etcdserver
   - etcdserver/api
   - etcdserver/api/v2http
-  - etcdserver/api/v2http/httptypes
-  - etcdserver/auth
-  - etcdserver/etcdserverpb
-  - etcdserver/membership
-  - etcdserver/stats
-  - lease
-  - lease/leasehttp
-  - lease/leasepb
-  - mvcc
-  - mvcc/backend
-  - mvcc/mvccpb
-  - pkg/adt
-  - pkg/contention
-  - pkg/crc
-  - pkg/fileutil
-  - pkg/httputil
-  - pkg/idutil
-  - pkg/ioutil
-  - pkg/logutil
-  - pkg/netutil
-  - pkg/pathutil
-  - pkg/pbutil
-  - pkg/runtime
-  - pkg/schedule
-  - pkg/tlsutil
-  - pkg/transport
   - pkg/types
-  - pkg/wait
-  - raft
-  - raft/raftpb
-  - rafthttp
-  - snap
-  - snap/snappb
-  - store
-  - version
-  - wal
-  - wal/walpb
 - package: github.com/coreos/go-omaha
   version: f8acb2d7b76c4156223538ca1806a888e764af3d
   subpackages:
@@ -175,33 +124,13 @@ import:
   - md2man
 - package: github.com/digitalocean/godo
   version: v1.1.3
-- package: github.com/gengo/grpc-gateway
-  version: dcb844349dc5d2cb0300fdc4d2d374839d0d2e13
-  subpackages:
-  - runtime
-  - runtime/internal
-  - utilities
-- package: github.com/go-ini/ini
-  version: v1.28.2
 - package: github.com/godbus/dbus
   version: a5942dec6340eb0d57f43f2003c190ce06e43dea
-- package: github.com/gogo/protobuf
-  version: c3995ae437bb78d1189f4f147dfe5f87ad3596e4
-  subpackages:
-  - proto
 - package: github.com/golang/protobuf
   version: 8616e8ee5e20a1704615e6c8d7afcdac06087a67
   subpackages:
   - jsonpb
   - proto
-- package: github.com/google/btree
-  version: 7d79101e329e5a3adf994758c578dab82b90c017
-- package: github.com/inconshreveable/mousetrap
-  version: 76626ae9c91c4f2a10f34cad8ce83ea42c93bb75
-- package: github.com/jmespath/go-jmespath
-  version: c01cf91b011868172fdcd9f41838e80c9d716264
-- package: github.com/jonboulle/clockwork
-  version: 72f9bd7c4e0c2a40055ab3d0f09654f730cce982
 - package: github.com/kballard/go-shellquote
   version: d8ec1a69a250a17bb0e419c386eac1f3711dc142
 - package: github.com/kylelemons/godebug
@@ -209,29 +138,10 @@ import:
   subpackages:
   - diff
   - pretty
-- package: github.com/matttproud/golang_protobuf_extensions
-  version: fc2b8d3a73c4867e51861bbdd5ae3c1f0869dd6a
-  subpackages:
-  - pbutil
 - package: github.com/packethost/packngo
   version: 80f62d78849dba04e42d8812329ee00558e37c5b
 - package: github.com/pin/tftp
   version: v2.1.0
-- package: github.com/prometheus/client_golang
-  version: e51041b3fa41cece0dca035740ba6411905be473
-  subpackages:
-  - prometheus
-- package: github.com/prometheus/client_model
-  version: fa8ad6fec33561be4280a8f0514318c79d7f6cb6
-  subpackages:
-  - go
-- package: github.com/prometheus/common
-  version: ffe929a3f4c4faeaa10f2b9535c2b1be3ad15650
-  subpackages:
-  - expfmt
-  - model
-- package: github.com/prometheus/procfs
-  version: 454a56f35412459b5e684fd5ec0f9211b94f002a
 - package: github.com/russross/blackfriday
   version: 300106c228d52c8941d4b3de6054a6062a86dda3
 - package: github.com/satori/go.uuid
@@ -242,10 +152,6 @@ import:
   version: 1c44ec8d3f1552cac48999f9306da23c4d8a288b
 - package: github.com/spf13/pflag
   version: 7f60f83a2c81bc3c3c0d5297f61ddfa68da9d3b7
-- package: github.com/ugorji/go
-  version: f1f1a805ed361a0e078bb537e4ea78cd37dcf065
-  subpackages:
-  - codec
 - package: github.com/vincent-petithory/dataurl
   version: 9a301d65acbb728fcc3ace14f45f511a4cfeea9c
 - package: github.com/vishvananda/netlink
@@ -254,11 +160,9 @@ import:
   - nl
 - package: github.com/vishvananda/netns
   version: 604eaf189ee867d8c147fafc28def2394e878d25
-- package: github.com/xiang90/probing
-  version: 6a0cc1ae81b4cc11db5e491e030e4b98fba79c19
 - package: go4.org
-  repo: https://github.com/go4org/go4
   version: 03efcb870d84809319ea509714dd6d19a1498483
+  repo: https://github.com/go4org/go4
   subpackages:
   - errorutil
 - package: golang.org/x/crypto
@@ -310,31 +214,10 @@ import:
   - googleapi
   - googleapi/internal/uritemplates
   - storage/v1
-- package: google.golang.org/appengine
-  version: 12d5545dc1cfa6047a286d5e853841b6471f4c19
-  subpackages:
-  - internal
-  - internal/app_identity
-  - internal/base
-  - internal/datastore
-  - internal/log
-  - internal/modules
-  - internal/remote_api
 - package: google.golang.org/cloud
   version: ab6762587120f590adf808437a5819b991ac2d20
   subpackages:
   - compute/metadata
   - internal
-- package: google.golang.org/grpc
-  version: 02fca896ff5f50c6bbbee0860345a49344b37a03
-  subpackages:
-  - codes
-  - credentials
-  - grpclog
-  - internal
-  - metadata
-  - naming
-  - peer
-  - transport
 - package: github.com/vmware/govmomi
   version: v0.15.0
