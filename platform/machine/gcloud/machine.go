@@ -24,7 +24,7 @@ import (
 )
 
 type machine struct {
-	gc      *cluster
+	gc      *Cluster
 	name    string
 	intIP   string
 	extIP   string

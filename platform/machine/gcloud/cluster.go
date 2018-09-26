@@ -29,7 +29,7 @@ import (
 	"github.com/coreos/mantle/platform/conf"
 )
 
-type cluster struct {
+type Cluster struct {
 	*platform.BaseCluster
 	api *gcloud.API
 }
@@ -53,7 +53,7 @@ func NewCluster(opts *gcloud.Options, rconf *platform.RuntimeConfig) (platform.C
 		return nil, err
 	}
 
-	gc := &cluster{
+	gc := &Cluster{
 		BaseCluster: bc,
 		api:         api,
 	}
@@ -61,8 +61,12 @@ func NewCluster(opts *gcloud.Options, rconf *platform.RuntimeConfig) (platform.C
 	return gc, nil
 }
 
+func (gc *Cluster) NewMachine(userdata *conf.UserData) (platform.Machine, error) {
+	return gc.NewMachineWithMetadata(userdata, nil)
+}
+
 // Calling in parallel is ok
-func (gc *cluster) NewMachine(userdata *conf.UserData) (platform.Machine, error) {
+func (gc *Cluster) NewMachineWithMetadata(userdata *conf.UserData, metadata map[string]string) (platform.Machine, error) {
 	conf, err := gc.RenderUserData(userdata, map[string]string{
 		"$public_ipv4":  "${COREOS_GCE_IP_EXTERNAL_0}",
 		"$private_ipv4": "${COREOS_GCE_IP_LOCAL_0}",
@@ -79,7 +83,7 @@ func (gc *cluster) NewMachine(userdata *conf.UserData) (platform.Machine, error)
 		}
 	}
 
-	instance, err := gc.api.CreateInstance(conf.String(), keys)
+	instance, err := gc.api.CreateInstance(conf.String(), keys, metadata)
 	if err != nil {
 		return nil, err
 	}

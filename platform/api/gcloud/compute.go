@@ -31,7 +31,7 @@ func (a *API) vmname() string {
 }
 
 // Taken from: https://github.com/golang/build/blob/master/buildlet/gce.go
-func (a *API) mkinstance(userdata, name string, keys []*agent.Key) *compute.Instance {
+func (a *API) mkinstance(userdata, name string, keys []*agent.Key, metadata map[string]string) *compute.Instance {
 	mantle := "mantle"
 	metadataItems := []*compute.MetadataItems{
 		&compute.MetadataItems{
@@ -41,6 +41,14 @@ func (a *API) mkinstance(userdata, name string, keys []*agent.Key) *compute.Inst
 			Value: &mantle,
 		},
 	}
+
+	for k, v := range metadata {
+		metadataItems = append(metadataItems, &compute.MetadataItems{
+			Key:   k,
+			Value: &v,
+		})
+	}
+
 	if len(keys) > 0 {
 		var sshKeys string
 		for i, key := range keys {
@@ -105,9 +113,9 @@ func (a *API) mkinstance(userdata, name string, keys []*agent.Key) *compute.Inst
 }
 
 // CreateInstance creates a Google Compute Engine instance.
-func (a *API) CreateInstance(userdata string, keys []*agent.Key) (*compute.Instance, error) {
+func (a *API) CreateInstance(userdata string, keys []*agent.Key, metadata map[string]string) (*compute.Instance, error) {
 	name := a.vmname()
-	inst := a.mkinstance(userdata, name, keys)
+	inst := a.mkinstance(userdata, name, keys, metadata)
 
 	plog.Debugf("Creating instance %q", name)
 
