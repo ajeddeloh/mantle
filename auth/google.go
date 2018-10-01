@@ -28,17 +28,18 @@ import (
 	"golang.org/x/oauth2/google"
 )
 
-// client registered under 'marineam-tools'
+// client registered under the coreos-gce-testing project as 'mantle'
 var conf = oauth2.Config{
-	ClientID:     "937427706989-nbndmfkp0knqardoagk6lbcamrsh828i.apps.googleusercontent.com",
-	ClientSecret: "F6Xs5wGHZzGw-QFXl3aylLUT",
+	ClientID:     "1053977531921-s05q1c3kf23pdq86bmqv5qcga21c0ra3.apps.googleusercontent.com",
+	ClientSecret: "pgt0XUBTCfMwsqf2Q6cVdxTO",
 	Endpoint: oauth2.Endpoint{
 		AuthURL:  "https://accounts.google.com/o/oauth2/auth",
 		TokenURL: "https://accounts.google.com/o/oauth2/token",
 	},
 	RedirectURL: "urn:ietf:wg:oauth:2.0:oob",
 	Scopes: []string{"https://www.googleapis.com/auth/devstorage.full_control",
-		"https://www.googleapis.com/auth/compute"},
+		"https://www.googleapis.com/auth/compute",
+		"https://www.googleapis.com/auth/iam"},
 }
 
 func writeCache(cachePath string, tok *oauth2.Token) error {
