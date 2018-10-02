@@ -105,13 +105,18 @@ func (bc *BaseCluster) PasswordSSHClient(ip string, user string, password string
 // stdout and stderr of the command and an error.
 // Leading and trailing whitespace is trimmed from each.
 func (bc *BaseCluster) SSH(m Machine, cmd string) ([]byte, []byte, error) {
-	var stdout bytes.Buffer
-	var stderr bytes.Buffer
 	client, err := bc.SSHClient(m.IP())
 	if err != nil {
 		return nil, nil, err
 	}
 	defer client.Close()
+
+	return bc.SSHWithClient(m, client, cmd)
+}
+
+func (bc *BaseCluster) SSHWithClient(m Machine, client *ssh.Client, cmd string) ([]byte, []byte, error) {
+	var stdout bytes.Buffer
+	var stderr bytes.Buffer
 
 	session, err := client.NewSession()
 	if err != nil {
@@ -125,6 +130,21 @@ func (bc *BaseCluster) SSH(m Machine, cmd string) ([]byte, []byte, error) {
 	outBytes := bytes.TrimSpace(stdout.Bytes())
 	errBytes := bytes.TrimSpace(stderr.Bytes())
 	return outBytes, errBytes, err
+}
+
+func (bc *BaseCluster) SshPubKey() (string, error) {
+	keys, err := bc.agent.List()
+	if err != nil {
+		return "", err
+	}
+
+	if len(keys) == 0 {
+		return "", fmt.Errorf("No keys found")
+	}
+
+	foo := keys[0].String()
+	fmt.Println(foo)
+	return foo, nil
 }
 
 func (bc *BaseCluster) Machines() []Machine {

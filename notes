@@ -1,0 +1,11 @@
+Notes to anyone picking this up:
+ - Setting the policy to change the roles on the service account fails. I think
+   this needs to be set on the project not the service account, but that means
+   grabbing the entirety of the bindings for the project, finding the service account,
+   adding the role, then settings the entirety of the roles to the new set.
+ - You can't add oslogin ssh keys to a service account (or any account) without being
+   authed as that account. That means that you would need to reauth in the middle of
+   the test
+     - as a workaround there is a directory api that might make this easier, haven't
+       done a lot of digging into it
+

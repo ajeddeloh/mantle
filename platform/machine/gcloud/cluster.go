@@ -42,6 +42,11 @@ var (
 	plog = capnslog.NewPackageLogger("github.com/coreos/mantle", "platform/machine/gcloud")
 )
 
+//hack remove this
+func (c Cluster) Api() *gcloud.API {
+	return c.api
+}
+
 func NewCluster(opts *gcloud.Options, rconf *platform.RuntimeConfig) (platform.Cluster, error) {
 	api, err := gcloud.New(opts)
 	if err != nil {

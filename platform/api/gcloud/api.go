@@ -24,6 +24,8 @@ import (
 
 	"github.com/coreos/pkg/capnslog"
 	"google.golang.org/api/compute/v1"
+	"google.golang.org/api/iam/v1"
+	"google.golang.org/api/oslogin/v1beta"
 
 	"github.com/coreos/mantle/auth"
 	"github.com/coreos/mantle/platform"
@@ -48,6 +50,8 @@ type Options struct {
 type API struct {
 	client  *http.Client
 	compute *compute.Service
+	iam     *iam.Service
+	oslogin *oslogin.Service
 	options *Options
 }
 
@@ -91,9 +95,21 @@ func New(opts *Options) (*API, error) {
 		return nil, err
 	}
 
+	iapi, err := iam.New(client)
+	if err != nil {
+		return nil, err
+	}
+
+	oapi, err := oslogin.New(client)
+	if err != nil {
+		return nil, err
+	}
+
 	api := &API{
 		client:  client,
 		compute: capi,
+		iam:     iapi,
+		oslogin: oapi,
 		options: opts,
 	}
 

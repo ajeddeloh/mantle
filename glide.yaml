@@ -51,7 +51,7 @@ import:
 - package: golang.org/x/oauth2
   version: 045497edb6234273d67dbc25da3f2ddbc4c4cacf
 - package: google.golang.org/api
-  version: c858ef4400610cbfd097ffc5f5c6e4a1a51eac86
+  #version: c858ef4400610cbfd097ffc5f5c6e4a1a51eac86
 - package: github.com/vmware/govmomi
   version: v0.15.0
 # This needs to be pinned. Dunno why.
