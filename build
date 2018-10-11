@@ -10,6 +10,8 @@ if [[ $# -eq 0 ]]; then
 	set -- cmd/*
 fi
 
+pwd
+ls -la .git
 version=$(git describe --dirty)
 version="${version#v}"
 version="${version/-/+}"
