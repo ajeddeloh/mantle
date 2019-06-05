@@ -41,9 +41,6 @@ var (
 		azureEnvironmentSpec{
 			SubscriptionName: "BlackForest",
 		},
-		azureEnvironmentSpec{
-			SubscriptionName: "Mooncake",
-		},
 	}
 	awsPartitions = []awsPartitionSpec{
 		awsPartitionSpec{
